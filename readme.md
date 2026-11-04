@@ -43,17 +43,20 @@ Adicione as seguintes dependências:
 - MySQL Driver
 - Spring Boot DevTools
 
-**Imagem 1 — Configuração do Spring Initializr**
+<img width="762" height="856" alt="image" src="https://github.com/user-attachments/assets/c24acf93-0b6d-4e67-ab22-19988922822a" />
+
 
 ![Configuração do Spring Initializr](images/01-spring-initializr.png)
 
-**Imagem 2 — Dependências selecionadas**
 
-![Dependências do projeto](images/02-dependencias.png)
+
+<img width="762" height="856" alt="image" src="https://github.com/user-attachments/assets/110aadf7-e16b-4498-92e4-e6ae050df5b0" />
+
 
 Após configurar, clique em Generate, extraia o projeto e abra no IntelliJ IDEA.
 
-**Imagem 3 — Projeto aberto no IntelliJ IDEA**
+<img width="1919" height="1029" alt="image" src="https://github.com/user-attachments/assets/33371f0c-0845-4b1a-83be-4b3bbb1b6a8f" />
+
 
 ![Projeto no IntelliJ](images/03-intellij.png)
 
@@ -86,7 +89,8 @@ TechByte/
 
 ---
 
-## 4. Configuração do banco de dados MySQL
+<img width="472" height="794" alt="image" src="https://github.com/user-attachments/assets/a85fd4f8-a45e-42c4-97ab-fe1c3ce66693" />
+
 
 Primeiramente, foi criado o banco de dados responsável por armazenar os produtos.
 
@@ -96,7 +100,7 @@ Comando SQL:
 CREATE DATABASE produto_ti;
 ```
 
-**Imagem 5 — Banco de dados criado no MySQL**
+
 
 ![Banco de dados MySQL](images/05-mysql-database.png)
 
@@ -117,7 +121,8 @@ spring.jpa.show-sql=true
 
 Substitua `sua_senha` pela senha configurada no MySQL.
 
-**Imagem 6 — Configuração do application.properties**
+<img width="589" height="178" alt="image" src="https://github.com/user-attachments/assets/5ddf2f7b-14fc-48b3-ba1d-faac73ce5402" />
+
 
 ![Configuração do banco](images/06-application-properties.png)
 
@@ -138,7 +143,10 @@ Atributos utilizados:
 
 O identificador utiliza as anotações `@Id` e `@GeneratedValue`, permitindo a geração automática do ID pelo banco de dados.
 
-**Imagem 7 — Classe Produto**
+<img width="854" height="841" alt="image" src="https://github.com/user-attachments/assets/f7f451e5-fb26-4653-9089-2b5c325ccece" />
+<img width="803" height="611" alt="image" src="https://github.com/user-attachments/assets/017ad59b-61f7-4741-9fed-1efaf0679d05" />
+
+
 
 ![Classe Produto](images/07-model-produto.png)
 
@@ -160,8 +168,6 @@ As rotas foram organizadas utilizando:
 | `@RequestMapping` | Define o caminho principal |
 | `@PostMapping` | Recebe requisições POST |
 | `@GetMapping` | Recebe requisições GET |
-
-**Imagem 8 — Código do ProdutoController**
 
 ![Controller](images/08-controller.png)
 
@@ -214,8 +220,6 @@ Para cadastrar um produto, utilize uma ferramenta como Postman ou Insomnia e env
 
 ![Teste POST](images/10-teste-post.png)
 
-**Imagem 11 — Consulta de produtos**
-
 ![Teste GET](images/11-teste-get.png)
 
 ---
@@ -265,7 +269,6 @@ Antes de construir a imagem da aplicação, foi necessário gerar o arquivo JAR.
 
 O arquivo será gerado dentro da pasta `target`.
 
-**Imagem 13 — Arquivo JAR gerado**
 
 ![Arquivo JAR](images/13-jar.png)
 
@@ -289,7 +292,6 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 O nome do arquivo JAR deve corresponder ao arquivo gerado pelo Maven.
 
-**Imagem 14 — Containerfile**
 
 ![Containerfile](images/14-containerfile.png)
 
@@ -302,8 +304,6 @@ Foi criada uma rede para permitir a comunicação entre a aplicação e o banco 
 ```bash
 podman network create techbyte-network
 ```
-
-**Imagem 15 — Rede criada no Podman**
 
 ![Rede Podman](images/15-podman-network.png)
 
@@ -415,9 +415,7 @@ Com a aplicação e o MySQL executando no Podman, foi realizado o teste final da
 
 Listagem de produtos:
 
-`http://localhost:8080/produtos`
-
-Cadastro de produtos:
+`http://localhost:8080/produto`
 
 Requisição POST para `/produtos`.
 
